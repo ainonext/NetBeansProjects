@@ -25,7 +25,7 @@ public class ArrayMove {
                 max = arr[i];
             }
         }
-        System.out.println("Минимум " + min + " Максимум " + max);
+        System.out.println("Минимум " + min + "\nМаксимум " + max);
         System.out.println("Среднее арифметическое " + (s - (min + max)) / n);
     }
 }
