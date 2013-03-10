@@ -41,38 +41,46 @@ public class ArrayMove {
             array[i] = (int) (Math.random() * 5 * num);
             System.out.print(array[i] + " ");
         }
-        System.out.println("Сдвиг вправо или влево? r/l");
+        /*System.out.println("Сдвиг вправо или влево? r/l");
          char c;
-         c = (char)System.in.read();
+         c = (char)System.in.read();*/
         System.out.println("Массив после сдвига");
         int len = array.length;
-        switch (c) {
-            case 'r':
-                //сдвиг вправо
-                for (int i = 0; i < num; i++) {
-                    int offset = i + k;
-                    if (offset >= len) {
+        // switch (k) {
+        if (k > 0) {
+            // case 'r':
+            //сдвиг вправо
+            for (int i = 0; i <= len - 1; i++) {
+                // tmp[0] = array[len - 1];
+                int offset = i + k;
+                if (offset >= len) {
+                    offset = offset - len;
+                    while (offset >= len) {
                         offset = offset - len;
-                    }
-                    tmp[offset] = array[i];
+                    };
                 }
-                for (int i = 0; i < num; i++) {
-                    System.out.print(tmp[i] + " ");
-                }
-                break;
-            case 'l':
-                //сдвиг влево
-                for (int i = len - 1; i >= 0; i--) {
-                    int offset = i - k;
-                    if (offset < 0) {
+                tmp[offset] = array[i];
+            }
+        } else {
+            k = Math.abs(k);
+            //   break;
+            //  case 'l':
+            //сдвиг влево
+            for (int i = len - 1; i >= 0; i--) {
+                int offset = i - k;
+                if (offset < 0) {
+                    offset = offset + len;
+                    while (offset < 0) {
                         offset = offset + len;
-                    }
-                    tmp[offset] = array[i];
+                    };
                 }
-                for (int i = 0; i < num; i++) {
-                    System.out.print(tmp[i] + " ");
-                }
-                break;
+                tmp[offset] = array[i];
+
+            }
+            //   break;
+        }
+        for (int i = 0; i < num; i++) {
+            System.out.print(tmp[i] + " ");
         }
 
         /*Сдвиг пошаговый
