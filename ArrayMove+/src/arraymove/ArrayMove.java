@@ -1,10 +1,11 @@
 package arraymove;
 
+import java.io.IOException;
 import java.util.Scanner;
 
 public class ArrayMove {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
         //Нахождение максимального, минимального элемента и среднего арифметического 
         Scanner in = new Scanner(System.in);
         int min;
@@ -32,6 +33,7 @@ public class ArrayMove {
         System.out.println("Введите размерность массива");
         int num = in.nextInt();
         int[] array = new int[num];
+        int[] tmp = new int[num];
         System.out.println("Введите шаг для сдвига ");
         int k = in.nextInt();
         System.out.println("Исходный массив ");
@@ -39,20 +41,55 @@ public class ArrayMove {
             array[i] = (int) (Math.random() * 5 * num);
             System.out.print(array[i] + " ");
         }
+        System.out.println("Сдвиг вправо или влево? r/l");
+         char c;
+         c = (char)System.in.read();
         System.out.println("Массив после сдвига");
-        int prev = array[0];
-        int t, step = 0;
-        do {
-            for (int i = 1; i < num; i++) {
-                t = array[i];
-                array[i] = prev;
-                prev = t;
-            }
-            array[0] = prev;
-            step++;
-        } while (step != k);
-        for (int i = 0; i < num; i++) {
-            System.out.print(array[i] + " ");
+        int len = array.length;
+        switch (c) {
+            case 'r':
+                //сдвиг вправо
+                for (int i = 0; i < num; i++) {
+                    int offset = i + k;
+                    if (offset >= len) {
+                        offset = offset - len;
+                    }
+                    tmp[offset] = array[i];
+                }
+                for (int i = 0; i < num; i++) {
+                    System.out.print(tmp[i] + " ");
+                }
+                break;
+            case 'l':
+                //сдвиг влево
+                for (int i = len - 1; i >= 0; i--) {
+                    int offset = i - k;
+                    if (offset < 0) {
+                        offset = offset + len;
+                    }
+                    tmp[offset] = array[i];
+                }
+                for (int i = 0; i < num; i++) {
+                    System.out.print(tmp[i] + " ");
+                }
+                break;
         }
+
+        /*Сдвиг пошаговый
+         * int prev = array[0];
+         int t, step = 0;
+         do {
+         for (int i = 1; i < num; i++) {
+         t = array[i];
+         array[i] = prev;
+         prev = t;
+         }
+         array[0] = prev;
+         step++;
+         } while (step != k);
+         for (int i = 0; i < num; i++) {
+         System.out.print(array[i] + " ");
+         }*/
+
     }
 }
