@@ -10,6 +10,7 @@ public class MatrixBeggining {
         int m = in.nextInt();
         int tmp = 0;
         int sum = 0;
+        int pr = 1;
         int[][] matrix = new int[m][m];
         for (int i = 0; i < m; i++) {
             for (int j = 0; j < m; j++) {
@@ -20,13 +21,11 @@ public class MatrixBeggining {
         }
 
         for (int i = 0; i < m; i++) {
-            for (int j = 0; j < m; j++) {
-                if (matrix[i] == matrix[j]) {
-                    tmp = matrix[i][j];
-                    sum = sum + tmp;
-                }
-            }
+            sum = sum + matrix[i][i];
+            pr = pr * matrix[i][m - 1 - i];
+
         }
         System.out.println("Сумма по главное диагонали " + sum);
+        System.out.println("Произведение по обратной диагонали " + pr);
     }
 }
