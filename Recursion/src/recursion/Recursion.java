@@ -10,18 +10,19 @@ public class Recursion {
         return mSuperPow(num, pow) * num;
     }
 
-    static int numbers(int n) {
+    static void numbers(int n) {
         if (n == 0) {
-         return 1;
-      }
-                           
-            return n*numbers(n-1);
-        
+            System.out.print(n + " ");
+        }
+        if (n > 0) {
+            numbers(n - 1);
+            System.out.print(n + " ");
+        }
     }
 
     public static void main(String[] args) {
-       
+
         System.out.println("Number " + mSuperPow(2, 3));
-        System.out.print(numbers(5));
+        numbers(5);
     }
 }
