@@ -17,7 +17,7 @@ public class TryInterfaces {
     interface Two{
         void setTwo(int n);
     }
-     class ClassA{
+     static class ClassA{
         int number;
         void show(){
             System.out.println("Поле number "+number);
