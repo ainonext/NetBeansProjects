@@ -21,7 +21,7 @@ public class Recursion {
     }
 
     public static void main(String[] args) {
-
+        int[][] matrix = new int [5][5];
         System.out.println("Number " + mSuperPow(2, 3));
         numbers(5);
     }
