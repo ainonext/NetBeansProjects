@@ -65,3 +65,8 @@ def fib(n)
     end
 end
  print "Fibonachi ", fib(4),"\n"
+ 
+array=[1,2,"3"]
+print array
+
+
