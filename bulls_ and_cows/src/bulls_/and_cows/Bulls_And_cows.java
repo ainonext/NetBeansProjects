@@ -9,7 +9,7 @@ public class Bulls_And_cows {
         int n = 4;
         int[] PC = new int[n];
         int[] USR = new int[n];
-
+        int bull = 0, cow = 0;
         System.out.println("Компьютер загадывает 4 цифры от 0 до 10");
         for (int i = 0; i < n; i++) {
             PC[i] = (int) (Math.random() * n * 2);
@@ -22,16 +22,21 @@ public class Bulls_And_cows {
         System.out.println("Введите ваши цифры ");
         for (int i = 0; i < n; i++) {
             USR[i] = in.nextInt();
-            System.out.print(USR[i] + " ");
+            //  System.out.print(USR[i] + " ");
         }
-         System.out.println();
-        for (int counter = 0; counter < n; counter++) {
-            if (PC[counter] != USR[counter]) {
-                System.out.println("Несовпадающие элементы");
-                return ;
+      //  System.out.println();
+
+        for (int i = 0; i < n ; i++) {
+            for (int j = 0; j < n; j++) {
+                if (PC[i] == USR[j]) {
+                    cow++;
+                    if (i == j) {
+                        bull++;
+                    }
+                }
             }
-           
         }
-       System.out.println("Одинаковые эелементы!"); 
+        System.out.println("Коров " + cow);
+        System.out.println("Быков " + bull);
     }
 }
