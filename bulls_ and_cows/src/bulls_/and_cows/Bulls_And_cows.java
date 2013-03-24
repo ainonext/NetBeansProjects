@@ -4,6 +4,16 @@ import java.util.Scanner;
 
 public class Bulls_And_cows {
 
+    static boolean compare(int array1[], int array2[]) {
+
+        for (int i = 0; i < array1.length; i++) {
+            if (array1[i] !=array2[i]) {
+                return false;
+            }
+        }
+        return true;
+    }
+
     public static void main(String[] args) {
         Scanner in = new Scanner(System.in);
         int n = 4;
@@ -19,24 +29,28 @@ public class Bulls_And_cows {
             System.out.print(PC[i] + " ");
         }
         System.out.println();
-        System.out.println("Введите ваши цифры ");
-        for (int i = 0; i < n; i++) {
-            USR[i] = in.nextInt();
-            //  System.out.print(USR[i] + " ");
-        }
-      //  System.out.println();
+        
+        while (!compare(PC,USR)) {
+            System.out.println("Введите ваши цифры ");
+            for (int i = 0; i < n; i++) {
+                USR[i] = in.nextInt();
+                //  System.out.print(USR[i] + " ");
+            }
+            //  System.out.println();
 
-        for (int i = 0; i < n ; i++) {
-            for (int j = 0; j < n; j++) {
-                if (PC[i] == USR[j]) {
-                    cow++;
-                    if (i == j) {
-                        bull++;
+            for (int i = 0; i < n; i++) {
+                for (int j = 0; j < n; j++) {
+                    if (PC[i] == USR[j]) {
+                        cow++;
+                        if (i == j) {
+                            bull++;
+                        }
                     }
                 }
             }
+            System.out.println("Коров " + cow);
+            System.out.println("Быков " + bull);
+            
         }
-        System.out.println("Коров " + cow);
-        System.out.println("Быков " + bull);
     }
 }
