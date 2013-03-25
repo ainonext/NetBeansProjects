@@ -1,5 +1,8 @@
 package bulls_.and_cows;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
 import java.util.Scanner;
 
 public class Bulls_And_cows {
@@ -14,11 +17,16 @@ public class Bulls_And_cows {
         return true;
     }
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
         Scanner in = new Scanner(System.in);
         int n = 4;
-        int[] PC = new int[n];
+        int[] PC=new int[n];
         int[] USR = new int[n];
+        System.out.println("Введите строку: ");
+        BufferedReader x = new BufferedReader(new InputStreamReader(System.in));
+        String str = x.readLine();
+       
+        System.out.println("Тест строки "+ str);
         int bull = 0, cow = 0;
         System.out.println("Компьютер загадывает 4 цифры от 0 до 10");
         for (int i = 0; i < n; i++) {
@@ -28,7 +36,7 @@ public class Bulls_And_cows {
             }
             System.out.print(PC[i] + " ");
         }
-        System.out.println();
+       System.out.println();
         
         while (!compare(PC,USR)) {
             System.out.println("Введите ваши цифры ");
