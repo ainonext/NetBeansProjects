@@ -8,7 +8,7 @@ public class Sorts {
             System.out.print(array[i] + " ");
         }
         int len = array.length;
-        int choose = 3;
+        int choose = 4;
         switch (choose) {
             case 1: {
                 // boolean key = false;
@@ -71,6 +71,26 @@ public class Sorts {
                         j = j - 1;
                     }
                     array[j + 1] = keys;
+                }
+                for (int i = 0; i < array.length; i++) {
+                    System.out.print(array[i] + " ");
+                }
+            }
+            break;
+            case 4: {
+                System.out.println();
+                System.out.println("Сортировка поиском минимума");
+                for (int k = 0; k < len; k++) {
+                    int min = k;
+                    for (int j = k + 1; j < array.length; j++) {
+                        if (array[j] < array[min]) {
+                            min = j;
+                        }
+                        int tempo = array[min];
+                        array[min] = array[k];
+                        array[k] = tempo;
+
+                    }
                 }
                 for (int i = 0; i < array.length; i++) {
                     System.out.print(array[i] + " ");
