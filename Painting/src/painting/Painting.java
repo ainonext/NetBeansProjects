@@ -10,11 +10,18 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 
 public class Painting extends JFrame {
+    //for saving all ovals's
+    public class MyOval {
 
+        int posX;
+        int PoxY;
+        int count;
+    }
     JPanel panel = new JPanel();
     // Graphics g;
     int posX;
     int posY;
+
     public Painting() {
         super("Main form");
         setSize(500, 500);
@@ -32,8 +39,8 @@ public class Painting extends JFrame {
                 posX = (int) location.getX();
                 posY = (int) location.getY();
                 panel.getGraphics().drawOval(posX - 15, posY - 15, 30, 30);
-               // panel.getGraphics().setColor(Color.YELLOW);
-               // panel.getGraphics().fillOval(posX - 15, posY - 15, 30, 30);
+                // panel.getGraphics().setColor(Color.YELLOW);
+                // panel.getGraphics().fillOval(posX - 15, posY - 15, 30, 30);
                 //  System.out.print(posX +" "+ posY + " <-- inethod\n");
             }
         });
