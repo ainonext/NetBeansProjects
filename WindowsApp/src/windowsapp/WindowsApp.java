@@ -147,7 +147,7 @@ public class WindowsApp extends JFrame {
             //Удаление шарика, если убрать будет оставаться хвост
             g.setColor(panel.getBackground());
             g.drawOval(posX, posY, BALL_SIZE, BALL_SIZE);
-            //g.fillOval(posX, posY, BALL_SIZE, BALL_SIZE);
+            g.fillOval(posX, posY, BALL_SIZE, BALL_SIZE);
         }
     }
 
