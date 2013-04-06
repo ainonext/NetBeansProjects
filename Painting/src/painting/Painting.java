@@ -11,6 +11,7 @@ import javax.swing.JPanel;
 
 public class Painting extends JFrame {
     //for saving all ovals's
+
     public class MyOval {
 
         int posX;
@@ -26,24 +27,32 @@ public class Painting extends JFrame {
         super("Main form");
         setSize(500, 500);
         panel.setBackground(Color.WHITE);
-        panel.setBounds(0, 0, 500, 500);
+        panel.setBounds(10, 10, 460, 440);
         panel.setLayout(null);
         Container contentPane = getContentPane();
+        contentPane.setBackground(Color.RED);
+        contentPane.setLayout(null);
         contentPane.add(panel);
-        contentPane.setBackground(Color.WHITE);
-        contentPane.setLayout(getLayout());
         panel.addMouseListener(new MouseAdapter() {
             @Override
             public void mousePressed(MouseEvent e) {
                 Point location = e.getPoint();
                 posX = (int) location.getX();
                 posY = (int) location.getY();
-                panel.getGraphics().drawOval(posX - 15, posY - 15, 30, 30);
-                // panel.getGraphics().setColor(Color.YELLOW);
-                // panel.getGraphics().fillOval(posX - 15, posY - 15, 30, 30);
+               // panel.getGraphics().setColor(Color.red);
+               // panel.getGraphics().drawOval(posX - 15, posY - 15, 30, 30);
+                //panel.getGraphics().fillOval(posX - 15, posY - 15, 30, 30);
                 //  System.out.print(posX +" "+ posY + " <-- inethod\n");
+                paint(panel.getGraphics());
             }
+           
+        public void paint(Graphics g){
+        g.setColor(Color.GREEN);
+        g.drawOval(posX - 15, posY - 15, 30, 30);
+        g.fillOval(posX - 15, posY - 15, 30, 30);
+        }
         });
+
     }
 
     public static void main(String[] args) {
